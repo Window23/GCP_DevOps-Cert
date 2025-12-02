@@ -5,7 +5,7 @@ steps:
       - '-c'
       - |
         echo "Starting Python Application"
-        python_app.py
+        python python_app.py
         echo "Python Application Finished"
 options:
   logging: CLOUD_LOGGING_ONLY

@@ -1,13 +1,12 @@
 steps:
-  - name: 'alpine'
-    entrypoint: 'sh'
+  - name: 'python'
+    entrypoint: 'bash'
     args:
       - '-c'
       - |
-        echo "SCloud Build Triggered Successfully!"
-        echo "Repository name: $REPO_NAME"
-        echo "Branch name: $BRANCH_NAME"
-#options:
-#  logging: CLOUD_LOGGING_ONLY
+        echo "Starting Python Application"
+        python_app.py
+        echo "Python Application Finished"
+options:
+  logging: CLOUD_LOGGING_ONLY
 
-logsBucket: gs://gcp-devops-cert-bucket

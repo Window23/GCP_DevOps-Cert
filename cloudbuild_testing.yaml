@@ -1,0 +1,12 @@
+steps:
+  - name: 'python'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "Starting Python Application"
+        python python_app.py
+        echo "Python Application Finished"
+options:
+  logging: CLOUD_LOGGING_ONLY
+

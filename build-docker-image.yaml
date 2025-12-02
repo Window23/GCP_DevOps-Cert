@@ -1,0 +1,31 @@
+# cloudbuild.yaml
+# Build a Docker image and push it to Google Container Registry
+
+# Replace values when creating the trigger or use substitutions
+# Example image path: asia-suth1-docker.pkg.dev/PROJECT_ID/demo-app/demo-repo:tag
+
+steps:
+# 1) Build image(using docker building)
+  - name: 'grc.io/cloud-builders/docker'
+    args:
+      [
+      'build',
+      '-t',
+      'asia-south1-docker.pkg.dev/$PROJECT_ID/demo-app-repo/demo-app:$SORT_SHA',
+      '.'
+      ]
+# 2) Push image to GCR
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'push',
+        asia-south1-docker.pkg.dev/$PROJECT_ID/demo-app-repo/demo-app:$SORT_SHA'
+      ]
+images:
+  - 'asia-south1-docker.pkg.dev/$PROJECT_ID/demo-app-repo/demo-app:$SORT_SHA'
+
+#optional: short timeout
+
+timeout: '1200s'
+
+

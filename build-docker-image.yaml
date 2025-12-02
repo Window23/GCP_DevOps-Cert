@@ -11,7 +11,7 @@ steps:
       [
       'build',
       '-t',
-      'asia-south1-docker.pkg.dev/$PROJECT_ID/demo-app-repo/demo-app:$SORT_SHA',
+      'west2-docker.pkg.dev/stately-forest-480020/python-app-imageeurope/app-image:v1',
       '.'
       ]
 # 2) Push image to GCR
@@ -19,13 +19,12 @@ steps:
     args:
       [
         'push',
-        asia-south1-docker.pkg.dev/$PROJECT_ID/demo-app-repo/demo-app:$SORT_SHA'
+        'west2-docker.pkg.dev/stately-forest-480020/python-app-imageeurope/app-image:v1'
       ]
 images:
-  - 'asia-south1-docker.pkg.dev/$PROJECT_ID/demo-app-repo/demo-app:$SORT_SHA'
+  - 'west2-docker.pkg.dev/stately-forest-480020/python-app-imageeurope/app-image:v1'
 
-#optional: short timeout
 
-timeout: '1200s'
-
+options:
+  Logging: CLOUD_LOGGING_ONLY
 
